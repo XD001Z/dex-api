@@ -98,6 +98,8 @@ router.delete("/:animeId/comment/:commentId/delete", async (req, res) => {
        
     
         await anime.save()
+
+        await anime.populate('comments')
     
         return res.status(200).json(anime);
         
